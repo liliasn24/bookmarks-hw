@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home(props) {
-	const [bookmarks, setBookmarks] = useState([]);
+	const [bookmarks, setBookmarks] = useState([]); // Bookmarks state
 
 	useEffect(() => {
 		(async () => {
@@ -18,6 +18,7 @@ export default function Home(props) {
 
 	return (
 		<div className="HomePage">
+			<h1>Bookmark Manager</h1>
 			<ul>
 				{bookmarks.map(bookmark => {
 					return (
