@@ -1,8 +1,9 @@
-const { model, Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const bookmarkSchema = new Schema({
-  title: String,
+  title: { type: String, required: true, unique: true },
   link: String,
+  comments: [ {type: Schema.Types.ObjectId, ref: "Comment"}]
 }, {
   timestamps: true
 })

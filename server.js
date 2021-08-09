@@ -2,9 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
-const Bookmark = require('./models/bookmark')
+// const Bookmark = require('./models/bookmark')
 const mongoose = require('mongoose');
 const path = require('path');
+const bookmarkController = require('./controllers/bookmarks')
 
 const MONGODB_URI = process.env.MONGODB_URI
 const db = mongoose.connection;
@@ -23,61 +24,10 @@ if (process.env.NODE_ENV !== 'development'){
 }
 
 /* Controller Goes Here Remove the tes*/
-// create
-
-app.post('/api/bookmarks', async(req, res)=> {
-  try{
-    const createdBookmark = await Bookmark.create(req.body)
-    console.log(createdBookmark)
-    res.status(200).json(createdBookmark)
-  } catch(error){
-    coonsole.error(error)
-    res.status(400).json({
-      message: error.message
-    })
-  }
-})
-
-// read
-app.get('/api/bookmarks', async(req, res) => {
-  try {
-    const foundBookmarks = await Bookmark.find({})
-    res.status(200).json(foundBookmarks)
-  } catch(error) {
-    console.error(error)
-    res.status(404).json({
-      message: error.message
-    })
-  }
-})
-
-app.get('/api/bookmarks/:id', async(req, res) => {
-  try {
-    const foundBookmark = await Bookmark.findById(req.params.id)
-    res.status(200).json(foundBookmark)
-  } catch(error) {
-    console.error(error)
-    res.status(404).json({
-      message: error.message
-    })
-  }
-})
-
-// update
-
-app.put('/api/bookmarks/:id', (req, res) => {
-  res.json(req.body)
-})
-
-// delete
-
-app.delete('/api/bookmarks/:id', (req, res)=> {
-  res.json({"route": 'delete'})
-})
+app.use('/api/bookmarks', bookmarkController);
 
 /* Controller Ends here */
 //LISTENER
-
 
 // for react router
 app.get('*', (req, res) => {
@@ -87,6 +37,62 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`API Listening on port ${PORT}`);
 });
+
+// create
+
+// app.post('/api/bookmarks', async(req, res)=> {
+//   try{
+//     const createdBookmark = await Bookmark.create(req.body)
+//     console.log(createdBookmark)
+//     res.status(200).json(createdBookmark)
+//   } catch(error){
+//     coonsole.error(error)
+//     res.status(400).json({
+//       message: error.message
+//     })
+//   }
+// })
+
+// read
+// app.get('/api/bookmarks', async(req, res) => {
+//   try {
+//     const foundBookmarks = await Bookmark.find({})
+//     res.status(200).json(foundBookmarks)
+//   } catch(error) {
+//     console.error(error)
+//     res.status(404).json({
+//       message: error.message
+//     })
+//   }
+// })
+//
+// app.get('/api/bookmarks/:id', async(req, res) => {
+//   try {
+//     const foundBookmark = await Bookmark.findById(req.params.id)
+//     res.status(200).json(foundBookmark)
+//   } catch(error) {
+//     console.error(error)
+//     res.status(404).json({
+//       message: error.message
+//     })
+//   }
+// })
+
+// update
+
+// app.put('/api/bookmarks/:id', (req, res) => {
+//   res.json(req.body)
+// })
+
+// delete
+
+// app.delete('/api/bookmarks/:id', (req, res)=> {
+//   res.json({"route": 'delete'})
+// })
+
+
+
+
 
 
 
