@@ -51,10 +51,16 @@ router.post('/', async(req, res) => {
 
 
 // add comment
-//  create a comment and add it to the comment array of the bookmark in question, and send back a relevant reponse
+//  create a comment and add it to the comment array of the bookmark in question,
+// and send back a relevant reponse
+
+
+
 
   router.put('/:id/addComment', (req, res) => {
+      //store the query
     const createCommentQuery = Comment.create(req.body)
+    // actually run query
     createCommentQuery.exec((err, createdComment) => {
       if(err){
         console.error(err);
@@ -62,6 +68,7 @@ router.post('/', async(req, res) => {
       }else{
         const updateBookmarkQuery = Bookmark.findByIdAndUpdate(req.params.id,
         {$addToSet: {comments: createdComment._id}}, { new: true })
+          // actually run it
         updateBookmarkQuery.exec((err, updatedBookmark) => {
           if(err){
             console.error(err);
@@ -74,9 +81,7 @@ router.post('/', async(req, res) => {
     })
   })
 
-
 //  DELETE
-
   router.delete('/:id', async(req, res) => {
     try{
       const deletedBookmark = await Bookmark.findByIdAndDelete(req.params.id);

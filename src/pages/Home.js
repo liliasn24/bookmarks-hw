@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home(props) {
 	const [bookmarks, setBookmarks] = useState([]);
@@ -21,7 +22,12 @@ export default function Home(props) {
 				{bookmarks.map(bookmark => {
 					return (
 						<li key={bookmark._id}>
-							<a href={bookmark.link}>{bookmark.title}</a>
+							<Link to={`/${bookmark._id}`}>
+								<h2>{bookmark.title}</h2>
+							</Link>
+							<p>
+								<a href={bookmark.link}>click here</a>
+							</p>
 						</li>
 					);
 				})}
