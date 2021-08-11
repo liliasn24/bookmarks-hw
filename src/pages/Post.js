@@ -13,7 +13,7 @@ export default function Show(props) {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				link: JSON.stringify({
+				body: JSON.stringify({
 					title: titleInput.current.value,
 					link: linkInput.current.value
 				})
@@ -55,10 +55,10 @@ export default function Show(props) {
 		<div className="ShowPage">
 			{Object.keys(bookmark).length ? (
 				<>
-					<h3>
+					<h1>
 						<a href={bookmark.link}>{bookmark.title}</a>
-					</h3>
-					// <p>{bookmark.link}</p>
+					</h1>
+
 					<button onClick={handleDelete}>Delete</button>
 				</>
 			) : (
@@ -78,7 +78,7 @@ export default function Show(props) {
 					Link:{' '}
 					<input type="text" ref={linkInput} defaultValue={bookmark.link} />
 				</label>
-				<input type="submit" value="Update MicroBookmark" />
+				<input type="submit" value="Update Bookmark" />
 			</form>
 		</div>
 	);
