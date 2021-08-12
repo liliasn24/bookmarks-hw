@@ -11,18 +11,13 @@ const routes = [
 		path: '/contact'
 	},
 	{
-		Component: Home,
-		key: 'Home',
-		path: '/home'
-	},
-	{
 		Component: About,
 		key: 'About',
 		path: '/about'
 	},
 	{
-		Component: App,
-		key: 'App',
+		Component: Home,
+		key: 'Home',
 		path: '/'
 	}
 ];
