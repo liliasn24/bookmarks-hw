@@ -20,25 +20,25 @@ export default function Home(props) {
 		})();
 	}, []);
 
-	const handleClick = async e => {
-		try {
-			const response = await fetch('/api/bookmarks', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					title: '',
-					link: ''
-				})
-			});
-			const data = await response.json();
-			setBookmarks([...bookmarks, data]);
-			setBookmark(data);
-		} catch (error) {
-			console.error(error);
-		}
-	};
+	// const handleClick = async e => {
+	// 	try {
+	// 		const response = await fetch('/api/bookmarks', {
+	// 			method: 'POST',
+	// 			headers: {
+	// 				'Content-Type': 'application/json'
+	// 			},
+	// 			body: JSON.stringify({
+	// 				title: '',
+	// 				link: ''
+	// 			})
+	// 		});
+	// 		const data = await response.json();
+	// 		setBookmarks([...bookmarks, data]);
+	// 		setBookmark(data);
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -95,9 +95,12 @@ export default function Home(props) {
 						<li key={bookmark._id}>
 							<Link to={`/${bookmark._id}`}>
 								<h2>{bookmark.title}</h2>
+								<p>Edit/Delete</p>
 							</Link>
 							<p>
-								<a href={bookmark.link}>click here</a>
+								<a href={bookmark.link} target="_blank">
+									Go to site here
+								</a>
 							</p>
 						</li>
 					);

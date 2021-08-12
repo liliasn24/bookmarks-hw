@@ -15,40 +15,77 @@ body {
 }
 
 .HomePage {
- background-color: #aeb6cf;
+ background-color: #a2c8b5;
  height: 100vh;
  font-family: "Indie Flower", cursive;
+    h1{
+      color: #606060;
+      font-weight: bold;
+      font-size: 60px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
- ul li {
-  background: #cfaeb6;
-  margin: 5px;
-  border: solid grey;
-  border-radius: 2%;
+    ul {
+      display: grid;
+      grid-template-columns: 300px 300px 300px 300px;
+      grid-gap: 1rem;
+    }
 
-}
-.position{
-  margin-bottom: 5px;
-  margin-top: 5px;
-  padding: 5px;
-  padding-left: 70px;
+    li {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    }
+
+     ul li {
+      background: #b0aac0;
+      margin: 5px;
+      border: solid grey;
+      border-radius: 2%;
+
+    }
+    .position{
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding: 5px;
+      padding-left: 80px;
+      color: grey;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+a {
+  color: white;
 }
 
 input[type=submit] {
-    padding:5px 15px;
-    background: #cfaeb6;
-    border:0 none;
-    cursor:pointer;
+    padding:5px 10px;
+    background: #b0aac0;
+    border: solid;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-left: 100px;
+    color: white;
 }
 
 .ShowPage {
-  background-color: #aeb6cf;
+  background-color: #a2c8b5;
   height: 100vh;
   font-family: "Indie Flower", cursive;
+  border: solid 5px;
+  color: #606060;
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-}
+
 
 .AboutPage {
 
