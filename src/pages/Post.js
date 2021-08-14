@@ -56,7 +56,9 @@ export default function Show(props) {
 			{Object.keys(bookmark).length ? (
 				<>
 					<h1>
-						<a href={bookmark.link}>{bookmark.title}</a>
+						<a className="title" href={bookmark.link}>
+							{bookmark.title}
+						</a>
 					</h1>
 
 					<button onClick={handleDelete}>Delete</button>

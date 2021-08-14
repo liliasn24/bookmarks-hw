@@ -30,6 +30,8 @@ body {
       display: grid;
       grid-template-columns: 300px 300px 300px 300px;
       grid-gap: 1rem;
+      text-align: center;
+      align-items: center;
     }
 
     li {
@@ -57,10 +59,9 @@ body {
     }
   }
 
-a {
-  color: white;
-}
-
+.color {
+    color: #606060;
+  }
 input[type=submit] {
     padding:5px 10px;
     background: #b0aac0;
@@ -70,8 +71,17 @@ input[type=submit] {
     margin-bottom: 30px;
     text-align: center;
     margin-left: 100px;
-    color: white;
 }
+
+
+.btn{
+  background: #b0aac0;
+  border: solid;
+}
+
+}
+
+
 
 .ShowPage {
   background-color: #a2c8b5;
@@ -83,6 +93,12 @@ input[type=submit] {
   font-size: 60px;
   text-align: center;
   margin-bottom: 50px;
+
+.title {
+  color: black;
+}
+
+
 }
 
 

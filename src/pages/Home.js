@@ -98,7 +98,7 @@ export default function Home(props) {
 								<p>Edit/Delete</p>
 							</Link>
 							<p>
-								<a href={bookmark.link} target="_blank">
+								<a className="color" href={bookmark.link} target="_blank">
 									Go to site here
 								</a>
 							</p>
